@@ -16,7 +16,7 @@
 </span>
 
 <ul >
-  <div class="questions-main" *ngFor="let question of questions; let i = index">
+  <div class="questions-main" *ngFor="let question of _questions.questions; let i = index">
     <div class="questions">
       <h5>Question: {{question.question}}</h5>
       <p>Answer: {{question.answer}}</p>

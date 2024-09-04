@@ -1,4 +1,16 @@
-<div>
-  <app-card></app-card>
+<div class="d-flex align-items-center justify-content-center">
+  <button style="margin-top: 30px;"class="btn btn-primary"(click)="showCard = !showCard">Switch Modes</button>
 </div>
+
+
+<div *ngIf="showCard; then editCard; else viewCard">
+</div>
+
+<ng-template #editCard>
+  <app-card></app-card>
+</ng-template>
+
+<ng-template #viewCard>
+  <app-view-card></app-view-card>
+</ng-template>
 

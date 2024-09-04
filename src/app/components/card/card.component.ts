@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { QuestionService } from '../question.service';
 @Component({
   selector: 'app-card',
   standalone: true,
@@ -13,22 +13,18 @@ export class CardComponent {
   question : string = "";
   answer : string = "";
 
-  questions: { question: string; answer: string }[] = [
-    { question: "What is Angular?", answer: "A web framework by Google." },
-    { question: "What is TypeScript?", answer: "A superset of JavaScript by Microsoft." }
-  ];
 
-  constructor() {
+  constructor(public _questions: QuestionService) {
   }
 
   addQuestion(){
-    this.questions.push({question: this.question, answer: this.answer});
+    this._questions.addQuestion(this.question,this.answer);
     this.question = "";
     this.answer = "";
   }
 
   deleteQuestion(index : number){
-    this.questions.splice(index, 1);
+    this._questions.removeQuestion(index);
 
   }
 }
