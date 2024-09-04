@@ -1,0 +1,30 @@
+<h3 class="text-center">Add Question</h3>
+<div class="h-100 d-flex align-items-center justify-content-center" name="add-question-input">
+  <div class="col-3">
+    <h5 class="text-center">Add Question</h5>
+    <input type="text" class="form-control"  [(ngModel)] = "question">
+  </div>
+  <div class="col-3">
+    <h5 class="text-center">Add Answer</h5>
+    <input type="text" class="form-control" [(ngModel)] = "answer">
+  </div>
+</div>
+<span class="button">
+  <div class="h-100 d-flex align-items-center justify-content-center">
+    <button class="btn btn-primary"  (click) = "addQuestion()">Save Question</button>
+  </div>
+</span>
+
+<ul >
+  <div class="questions-main" *ngFor="let question of questions; let i = index">
+    <div class="questions">
+      <h5>Question: {{question.question}}</h5>
+      <p>Answer: {{question.answer}}</p>
+      <span class="button">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+          <button class="btn btn-primary"  (click) = "deleteQuestion(i)">Delete Question</button>
+        </div>
+      </span>
+    </div>
+  </div>
+</ul>
